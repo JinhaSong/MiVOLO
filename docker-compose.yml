@@ -1,0 +1,17 @@
+version: '2.3'
+
+services:
+  main:
+    container_name: mivolo_main
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    runtime: nvidia
+    restart: always
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    ports:
+      - "8000:8000"
+      - "8022:22"
+    stdin_open: true
+    tty: true
